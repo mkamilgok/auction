@@ -35,7 +35,14 @@ public class UserController {
         List<User> users = userService.getAll();
         return ResponseEntity.ok(users);
     }
-
+    
+    @GetMapping("/hello")
+   // @ApiOperation(value = "Get All Users",response = User.class)
+    public String hello(){
+        System.out.println("[GET ALL USERS REQUEST]:  ");
+        return "Hello";
+    }
+    
     @GetMapping("/{id}")
     public ResponseEntity<User> getById(@PathVariable("id") Long id){
         System.out.println("[GET USER REQUEST]:  " + id);
